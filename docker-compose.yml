@@ -12,30 +12,9 @@ services:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
+    user: root
     environment:
       - DOCKER_HOST=unix:///var/run/docker.sock
-    user: root
-    
-  # Optional: Docker-in-Docker service
-  docker:
-    image: docker:dind
-    container_name: jenkins-docker
-    restart: unless-stopped
-    privileged: true
-    networks:
-      - jenkins
-    environment:
-      - DOCKER_TLS_CERTDIR=/certs
-    volumes:
-      - jenkins-docker-certs:/certs/client
-      - jenkins_home:/var/jenkins_home
-    ports:
-      - "2376:2376"
 
 volumes:
   jenkins_home:
-  jenkins-docker-certs:
-
-networks:
-  jenkins:
-    driver: bridge
