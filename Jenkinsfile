@@ -12,7 +12,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo '🔄 Cloning repository...'
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/php-jenkins-demo.git'
+                git branch: 'main', url: 'https://github.com/Gibransyah/php-jenkins-demo.git'
                 
                 echo '📋 Repository cloned successfully'
                 sh 'ls -la'
