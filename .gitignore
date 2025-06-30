@@ -1,0 +1,17 @@
+# Composer
+/vendor/
+composer.lock
+
+# Data files
+/data/*.json
+!/data/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
